@@ -7,8 +7,21 @@ const url = require('url');
 program
   .requiredOption('-i, --input <path>', 'Input JSON file path')
   .requiredOption('-h, --host <host>', 'Server host')
-  .requiredOption('-p, --port <port>', 'Server port');
-
+  .requiredOption('-p, --port <port>', 'Server port')
+  .configureOutput({
+    outputError: (str, write) => {
+    if (str.includes('error: required option \'-i'))
+      write('We cannot cook, Jesse. There is no -i \n');
+    else if (str.includes('error: required option \'-h'))
+      write('Is your program cannot find -h? Then Better Call KaByH\n');
+    else if (str.includes('error: required option \'-p'))
+      write('Oh, there is no -p ? It was me, Dio\n');
+    else if (str.includes('error: option \'-r'))
+      write('Your next line is |Oh, I have to write a number after -r|\n');
+    else
+      write(str);
+  }
+});
 program.parse(process.argv);
 const options = program.opts();
 
