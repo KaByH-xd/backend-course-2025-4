@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node main.js",
-  "dev": "nodemon main.js -- --input weather.json --host 127.0.0.1 --port 3000"
+    "dev":"nodemon main.js -- --input weather.json --host 127.0.0.1 --port 3000"
+  
   },
   "repository": {
     "type": "git",
